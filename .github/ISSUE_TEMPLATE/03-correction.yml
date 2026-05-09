@@ -1,0 +1,41 @@
+name: "✍️ [FIX] 修正错误 / 补充信息"
+description: 发现某中转的表格 / 说明 / 实测数据错了 / 过期了，帮忙改一下。
+title: "[FIX] "
+labels: ["correction"]
+body:
+  - type: input
+    id: which-file
+    attributes:
+      label: 要修的是哪个文件 / 哪一节
+      placeholder: "如 README.md 第 4 节表格 / services/xxx.md"
+    validations:
+      required: true
+  - type: textarea
+    id: current-content
+    attributes:
+      label: 当前内容
+      description: 复制当前错误的句子 / 表格行。
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-fix
+    attributes:
+      label: 应该改成什么
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 判断依据
+      description: 截图 / 官方公告链接 / 实测 log。不带证据的修正不会被 merge。
+    validations:
+      required: true
+  - type: checkboxes
+    id: kna-touch
+    attributes:
+      label: 是否涉及 KNA 条目
+      description: 如果你要改的是 KNA 那一节，本 PR 需第三方贡献者 +1 才能合并（防止维护者自我吝陣）。
+      options:
+        - label: 是的，这是 KNA 条目的修改
+          required: false
+
