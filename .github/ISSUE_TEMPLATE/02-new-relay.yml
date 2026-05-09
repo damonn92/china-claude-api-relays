@@ -1,0 +1,76 @@
+name: "➕ [NEW] 添加新中转"
+description: 提议将某中转收录进本指南。
+title: "[NEW] 添加 "
+labels: ["new-relay"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请读一下 CONTRIBUTING.md。本指南不接受“商务合作收录”，全部依据公开信息 + 社区实测。
+  - type: input
+    id: relay-name
+    attributes:
+      label: 中转名称
+      placeholder: "如 ExampleAPI"
+    validations:
+      required: true
+  - type: input
+    id: relay-domain
+    attributes:
+      label: 中转域名
+      placeholder: "https://example.com"
+    validations:
+      required: true
+  - type: input
+    id: operating-since
+    attributes:
+      label: 运营时长
+      description: 首次对外开放注册的年月。
+      placeholder: "YYYY-MM"
+    validations:
+      required: true
+  - type: textarea
+    id: refund-policy
+    attributes:
+      label: 退款政策链接
+      description: 必须是官方公开页面 URL。
+    validations:
+      required: true
+  - type: textarea
+    id: passthru-test
+    attributes:
+      label: 透传计费实测证据
+      description: 按 README 第 6.1 节标准贴出 curl log + dashboard 扣费截图说明。
+    validations:
+      required: true
+  - type: textarea
+    id: latency-test
+    attributes:
+      label: 延迟实测
+      description: 按 README 第 6.2 节标准提供。
+    validations:
+      required: true
+  - type: textarea
+    id: tools-compat
+    attributes:
+      label: 工具兼容性清单
+      description: 按 README 第 6.3 节标准。至少覆盖 Claude Code + Anthropic SDK。
+    validations:
+      required: true
+  - type: textarea
+    id: user-feedback
+    attributes:
+      label: 至少 3 条真实用户反馈
+      description: 可匿名，但需可验证（公开社区帖子 / 评论 / 别的 PR 中提及）。
+    validations:
+      required: true
+  - type: checkboxes
+    id: maintainer-disclosure
+    attributes:
+      label: 利益相关声明
+      options:
+        - label: 我不是该中转服务的运营方 / 员工 / 代理商
+          required: false
+        - label: 我是该中转运营方，提交后需第三方贡献者验证才能合并
+          required: false
+
