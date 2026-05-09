@@ -1,0 +1,25 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^http://localhost" },
+    { "pattern": "^https://localhost" },
+    { "pattern": "^https://code.wearekna.com" },
+    { "pattern": "^https://github.com/.+/issues$" },
+    { "pattern": "^https://github.com/.+/pulls$" },
+    { "pattern": "\\.\\.\\/" }
+  ],
+  "replacementPatterns": [
+    { "pattern": "^/", "replacement": "https://github.com/damonn92/china-claude-api-relays/blob/main/" }
+  ],
+  "httpHeaders": [
+    {
+      "urls": ["https://github.com/", "https://api.github.com/"],
+      "headers": { "Accept-Encoding": "zstd, br, gzip, deflate" }
+    }
+  ],
+  "timeout": "10s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 429]
+}
+
