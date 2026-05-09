@@ -1,0 +1,51 @@
+name: "🚨 [ALERT] 中转跑路 / 异常事件"
+description: 报告某中转跑路、风控异常、余额清零等。
+title: "[ALERT] "
+labels: ["alert", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢报告。请提供尽可能多的证据，社区会共同核实。
+        在未被多人验证之前，仅打 `needs-verification` 标签。
+  - type: input
+    id: relay-name
+    attributes:
+      label: 中转名称 + 域名
+      placeholder: "如 example.com"
+    validations:
+      required: true
+  - type: input
+    id: incident-date
+    attributes:
+      label: 事件发生时间
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 事件描述
+      description: 发生了什么？影响范围？是否联系过运营方？
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据
+      description: 截图、log、官方公告链接。代码请用 markdown code fence。
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度
+      options:
+        - 可能跑路（服务不可访问 + 官方无响应）
+        - 严重风控（大量用户被冻结 / 余额异常）
+        - 服务中断（但运营方领头处理）
+        - 价格突变（未提前告知）
+        - 其他
+    validations:
+      required: true
+
