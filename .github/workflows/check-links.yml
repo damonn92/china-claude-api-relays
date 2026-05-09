@@ -1,0 +1,33 @@
+name: Check Links
+
+on:
+  schedule:
+    # Every Monday at 02:00 UTC
+    - cron: '0 2 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.md'
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    name: Markdown link check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run markdown link check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/markdown-link-check-config.json'
+          folder-path: '.'
+          file-extension: '.md'
+
